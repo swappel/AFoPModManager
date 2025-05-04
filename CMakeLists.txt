@@ -7,6 +7,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+
+add_subdirectory(packer)
+
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-add_executable(utils ${SOURCES})
+add_executable(ManagerUtils ${SOURCES})
+target_include_directories(utils PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(ManagerUtils PRIVATE packer)
+

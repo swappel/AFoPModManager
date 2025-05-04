@@ -39,80 +39,46 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/elanda/Coding/CPP/afop-modloader/build/
+cmake_ninja_workdir = /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target utils
+# Object build statements for EXECUTABLE target ManagerUtils
 
 
 #############################################
-# Order-only phony target for utils
+# Order-only phony target for ManagerUtils
 
-build cmake_object_order_depends_target_utils: phony || CMakeFiles/utils.dir
+build cmake_object_order_depends_target_ManagerUtils: phony || CMakeFiles/ManagerUtils.dir
 
-build CMakeFiles/utils.dir/src/Main.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/Main.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/Main.cpp.o.d
+build CMakeFiles/ManagerUtils.dir/src/Main.cpp.o: CXX_COMPILER__ManagerUtils_unscanned_Debug /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/src/Main.cpp || cmake_object_order_depends_target_ManagerUtils
+  DEP_FILE = CMakeFiles/ManagerUtils.dir/src/Main.cpp.o.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src
-
-build CMakeFiles/utils.dir/src/managers/CommandManager.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/managers/CommandManager.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/managers/CommandManager.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src/managers
-
-build CMakeFiles/utils.dir/src/managers/ConfigurationManager.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/managers/ConfigurationManager.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/managers/ConfigurationManager.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src/managers
-
-build CMakeFiles/utils.dir/src/managers/InterfaceManager.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/managers/InterfaceManager.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/managers/InterfaceManager.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src/managers
-
-build CMakeFiles/utils.dir/src/managers/ManagerUtils.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/managers/ManagerUtils.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/managers/ManagerUtils.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src/managers
-
-build CMakeFiles/utils.dir/src/utils/Mod.cpp.o: CXX_COMPILER__utils_unscanned_Debug /home/elanda/Coding/CPP/afop-modloader/src/utils/Mod.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = CMakeFiles/utils.dir/src/utils/Mod.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/elanda/Coding/CPP/afop-modloader/include
-  OBJECT_DIR = CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = CMakeFiles/utils.dir/src/utils
+  INCLUDES = -I/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/include
+  OBJECT_DIR = CMakeFiles/ManagerUtils.dir
+  OBJECT_FILE_DIR = CMakeFiles/ManagerUtils.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target utils
+# Link build statements for EXECUTABLE target ManagerUtils
 
 
 #############################################
-# Link the executable /home/elanda/Coding/CPP/afop-modloader/bin/utils
+# Link the executable /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/ManagerUtils
 
-build /home/elanda/Coding/CPP/afop-modloader/bin/utils: CXX_EXECUTABLE_LINKER__utils_Debug CMakeFiles/utils.dir/src/Main.cpp.o CMakeFiles/utils.dir/src/managers/CommandManager.cpp.o CMakeFiles/utils.dir/src/managers/ConfigurationManager.cpp.o CMakeFiles/utils.dir/src/managers/InterfaceManager.cpp.o CMakeFiles/utils.dir/src/managers/ManagerUtils.cpp.o CMakeFiles/utils.dir/src/utils/Mod.cpp.o
+build /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/ManagerUtils: CXX_EXECUTABLE_LINKER__ManagerUtils_Debug CMakeFiles/ManagerUtils.dir/src/Main.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/utils.dir
+  LINK_LIBRARIES = -lpacker
+  OBJECT_DIR = CMakeFiles/ManagerUtils.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = /home/elanda/Coding/CPP/afop-modloader/bin/utils
-  TARGET_PDB = utils.dbg
+  TARGET_FILE = /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/ManagerUtils
+  TARGET_PDB = ManagerUtils.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/elanda/Coding/CPP/afop-modloader/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -123,7 +89,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/elanda/Coding/CPP/afop-modloader/build && /usr/bin/cmake --regenerate-during-build -S/home/elanda/Coding/CPP/afop-modloader -B/home/elanda/Coding/CPP/afop-modloader/build
+  COMMAND = cd /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build && /usr/bin/cmake --regenerate-during-build -S/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager -B/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -131,9 +97,92 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target utils
+
+
+#############################################
+# Order-only phony target for utils
+
+build cmake_object_order_depends_target_utils: phony || packer/CMakeFiles/utils.dir
+
+build packer/CMakeFiles/utils.dir/src/FileUtils.cpp.o: CXX_COMPILER__utils_unscanned_Debug /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/src/FileUtils.cpp || cmake_object_order_depends_target_utils
+  DEP_FILE = packer/CMakeFiles/utils.dir/src/FileUtils.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/include
+  OBJECT_DIR = packer/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = packer/CMakeFiles/utils.dir/src
+
+build packer/CMakeFiles/utils.dir/src/ModArchive.cpp.o: CXX_COMPILER__utils_unscanned_Debug /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/src/ModArchive.cpp || cmake_object_order_depends_target_utils
+  DEP_FILE = packer/CMakeFiles/utils.dir/src/ModArchive.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/include
+  OBJECT_DIR = packer/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = packer/CMakeFiles/utils.dir/src
+
+build packer/CMakeFiles/utils.dir/src/Packer.cpp.o: CXX_COMPILER__utils_unscanned_Debug /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/src/Packer.cpp || cmake_object_order_depends_target_utils
+  DEP_FILE = packer/CMakeFiles/utils.dir/src/Packer.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/include
+  OBJECT_DIR = packer/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = packer/CMakeFiles/utils.dir/src
+
+build packer/CMakeFiles/utils.dir/src/main.cpp.o: CXX_COMPILER__utils_unscanned_Debug /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/src/main.cpp || cmake_object_order_depends_target_utils
+  DEP_FILE = packer/CMakeFiles/utils.dir/src/main.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/include
+  OBJECT_DIR = packer/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = packer/CMakeFiles/utils.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target utils
+
+
+#############################################
+# Link the executable /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/utils
+
+build /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/utils: CXX_EXECUTABLE_LINKER__utils_Debug packer/CMakeFiles/utils.dir/src/FileUtils.cpp.o packer/CMakeFiles/utils.dir/src/ModArchive.cpp.o packer/CMakeFiles/utils.dir/src/Packer.cpp.o packer/CMakeFiles/utils.dir/src/main.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = packer/CMakeFiles/utils.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/utils
+  TARGET_PDB = utils.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build packer/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build/packer && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build packer/edit_cache: phony packer/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build packer/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build/packer && /usr/bin/cmake --regenerate-during-build -S/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager -B/mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build packer/rebuild_cache: phony packer/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
-build utils: phony /home/elanda/Coding/CPP/afop-modloader/bin/utils
+build ManagerUtils: phony /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/ManagerUtils
+
+build utils: phony /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/utils
 
 # =============================================================================
 # Folder targets.
@@ -141,9 +190,16 @@ build utils: phony /home/elanda/Coding/CPP/afop-modloader/bin/utils
 # =============================================================================
 
 #############################################
-# Folder: /home/elanda/Coding/CPP/afop-modloader/build
+# Folder: /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build
 
-build all: phony /home/elanda/Coding/CPP/afop-modloader/bin/utils
+build all: phony /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/ManagerUtils packer/all
+
+# =============================================================================
+
+#############################################
+# Folder: /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/build/packer
+
+build packer/all: phony /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/bin/utils
 
 # =============================================================================
 # Built-in targets
@@ -152,14 +208,14 @@ build all: phony /home/elanda/Coding/CPP/afop-modloader/bin/utils
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/elanda/Coding/CPP/afop-modloader/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/CMakeLists.txt /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/elanda/Coding/CPP/afop-modloader/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/CMakeLists.txt /mnt/06DEA28EDEA27619/Coding/CPP/AFoPModManager/packer/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################
