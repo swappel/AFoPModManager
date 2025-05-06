@@ -17,6 +17,8 @@ If you encounter any bugs, please open an issue on this very repository.
 You will not need to download anything else before usage. Great thanks to Patrick Mollohan, who generously accepted for me to redistribute his Ultimate Snowdrop ModLoader (https://github.com/patrickmollohan/Universal-Snowdrop-Modloader)!
 Everything will be installed and configured in a way that you will just need to launch the game and not do anything else.
 
+**Please make sure to run this program in it's dedicated folder(not on Desktop or Documents or Downloads). Instead, create a folder and put the program inside.**
+
 This tool can seem quite overwhelming for many people at first if they don't know how to use a command line.
 The idea is that you enter a command that allows you to... say turn mods on or off. 
 **Here is the current list of commands:**

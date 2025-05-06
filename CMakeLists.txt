@@ -13,6 +13,6 @@ add_subdirectory(packer)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(ManagerUtils ${SOURCES})
-target_include_directories(utils PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(ManagerUtils PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_link_libraries(ManagerUtils PRIVATE packer)
 
