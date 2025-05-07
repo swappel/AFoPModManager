@@ -5,7 +5,7 @@
 
 struct Mod {
     int modWeight;
-    std::vector<std::filesystem::path> modFilePaths;
+    std::filesystem::path modFilePath;
     ModMetadata modData;
 };
 

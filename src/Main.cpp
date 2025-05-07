@@ -1,3 +1,4 @@
+#include "ModManager.hpp"
 #include <iostream>
 
 int main() {
@@ -17,10 +18,20 @@ int main() {
             std::cout << "";
             continue;
         } else if (userInput == "list") {
+
+            for (const auto& mod : getModList()) {
+                
+                ModMetadata meta = mod.modData;
+
+                std::cout << "___________________________________________\n"
+                          << "Mod ID: " << meta.id << "\n"
+                          << "Name: " << meta.name << "\n"
+                          << "Author: " << meta.author << "\n"
+                          << "Version: " << meta.version << "\n"
+                          << "Description: " << meta.description << "\n";
+            }
             
-        }
-        
+            std::cout << "___________________________________________\n";
+        }        
     }
-    
-    return 0;
 }
