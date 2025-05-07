@@ -3,8 +3,11 @@
 
 int main() {
 
+    // Initialize config files:
+    
+
     std::cout << "Welcome to the AFoP Mod Manager!\n" <<
-                 "Please enter \"help\" to see available commands.";
+                 "Please enter \"help\" to see available commands.\n";
     
     std::string userInput;
 
@@ -32,6 +35,8 @@ int main() {
             }
             
             std::cout << "___________________________________________\n";
-        }        
+        } else if (userInput == "scan") {
+
+        }
     }
 }

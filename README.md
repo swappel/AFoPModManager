@@ -30,6 +30,8 @@ The idea is that you enter a command that allows you to... say turn mods on or o
     * This command turns on the given mod, identified by it's unique Mod-ID.
 - `disable <MOD_ID>`: 
     * This command turns off the given mod, identified by it's unique Mod-ID.
+- `scan`:
+    * This command scans for new mods and pushes them to the game directory.
 - `package <name> <path>`:
     * This command allows mod creators to package their mods into *.afopmod files. A new universal file format to make modding easier.\n
       More information later.
