@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include "nlohmann/json.hpp"
 
-extern std::vector<std::filesystem::path> chosenModPaths;
-
 std::vector<Mod> gatherNewMods();
-void filterMods(const std::unordered_map<Mod, uint8_t>& modWeightMap);
+void filterMods();
 uint8_t promptModWeight(const std::string& modId, nlohmann::json& weightJson, const std::string& configPath);
+void pushFiles(const std::filesystem::path& gamePath);

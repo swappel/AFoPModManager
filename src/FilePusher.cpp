@@ -7,6 +7,7 @@
 namespace fs = std::filesystem;
 using json = nlohmann::json;
 
+std::vector<std::filesystem::path> chosenModPaths;
 std::unordered_map<std::string, std::vector<std::string>> finalModFiles;
 
 std::vector<std::string> getModifiedFiles(const fs::path& modDir) {
@@ -20,19 +21,6 @@ std::vector<std::string> getModifiedFiles(const fs::path& modDir) {
     }
 
     return files;
-}
-
-std::vector<Mod> gatherNewMods() {
-    fs::path modsPath = "./mods/";
-
-    if (!fs::exists(modsPath)) {
-        std::cerr << "The ./mods/ directory does not exist. Try to relaunch the program and try again!\n";
-        return {};
-    }
-
-    for (const auto& mod : fs::recursive_directory_iterator(modsPath)) {
-        
-    }
 }
 
 uint8_t promptModWeight(const std::string& modId, json& weightJson, const std::string& configPath) {
@@ -77,9 +65,12 @@ void filterMods() {
     json weightJson;
 
     std::ifstream in(weightCfgPath);
-    if (in) {
+    if (in && in.peek() != std::ifstream::traits_type::eof()) {
         in >> weightJson;
+    } else {
+        weightJson = json::object(); // start with empty object
     }
+
 
     // file path (relative) -> (mod ID, weight)
     std::unordered_map<std::string, std::pair<std::string, uint8_t>> fileWinners;
@@ -138,6 +129,8 @@ void pushFiles(const fs::path& gamePath) {
         for (const std::string& relativeFile : finalModFiles[modId]) {
             fs::path sourceFile = modRoot / relativeFile;
             fs::path destinationFile = gamePath / relativeFile;
+            
+            std::cout << "Pushed file " << destinationFile.filename() << "\n";
 
             try {
                 fs::create_directories(destinationFile.parent_path()); // Ensure destination dirs exist

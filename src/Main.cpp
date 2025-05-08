@@ -43,8 +43,11 @@ int main() {
             }
             
             std::cout << "___________________________________________\n";
+        } else if (userInput == "push") {
+            pushFiles(gamePath);
         } else if (userInput == "scan") {
-            
+            filterMods();
         }
+        
     }
 }
