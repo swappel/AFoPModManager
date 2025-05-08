@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <vector>
 #include <filesystem>
@@ -7,7 +8,12 @@ struct Mod {
     int modWeight;
     std::filesystem::path modFilePath;
     ModMetadata modData;
+
+    bool operator<(const Mod& other) const {
+        return modData.id < other.modData.id;
+    }
 };
+
 
 std::vector<Mod> getModList();
 

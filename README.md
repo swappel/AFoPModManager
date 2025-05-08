@@ -1,7 +1,5 @@
 # AFoP Mod Manager
 
-# /!\ CURRENTLY NOT WORKING - ONLY SOURCE CODE /!\
-
 ## F.A.Q.
 ### What is this?
 

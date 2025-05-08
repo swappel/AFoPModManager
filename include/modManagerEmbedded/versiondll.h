@@ -1,3 +1,5 @@
+#pragma once
+
 /*
   These are the binaries for the Universal Snowdrop Modloader v1.0.5 by Patrick Mollohan.
   Go check out his work on his github repo: https://github.com/patrickmollohan/Universal-Snowdrop-Modloader

@@ -1,6 +1,7 @@
 #include "ModManager.hpp"
 #include "SetupManager.hpp"
 #include "modManagerEmbedded/EmbedManager.hpp"
+#include "FilePusher.hpp"
 #include <iostream>
 
 int main() {
@@ -43,7 +44,7 @@ int main() {
             
             std::cout << "___________________________________________\n";
         } else if (userInput == "scan") {
-
+            
         }
     }
 }
