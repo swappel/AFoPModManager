@@ -1,10 +1,17 @@
 #include "ModManager.hpp"
+#include "SetupManager.hpp"
+#include "modManagerEmbedded/EmbedManager.hpp"
 #include <iostream>
 
 int main() {
 
     // Initialize config files:
-    
+    prepareFiles();
+
+    // Get the game path from config and if nto set, prompt user
+    promptGamePath();
+    // Extract the Ultimate Snowdrop Modloader v1.0.5 by Patrick Mollohan 
+    writeEmbeddedFile(gamePath);    
 
     std::cout << "Welcome to the AFoP Mod Manager!\n" <<
                  "Please enter \"help\" to see available commands.\n";
@@ -13,7 +20,7 @@ int main() {
 
     while (true) {
         std::cout << "> ";
-        std::cin >> userInput;
+        std::getline(std::cin, userInput);
 
         if (userInput == "exit") {
             return 0;
@@ -24,7 +31,7 @@ int main() {
 
             for (const auto& mod : getModList()) {
                 
-                ModMetadata meta = mod.modData;
+                const ModMetadata& meta = mod.modData;
 
                 std::cout << "___________________________________________\n"
                           << "Mod ID: " << meta.id << "\n"

@@ -1,4 +1,7 @@
 #include <string>
 
+extern std::string gamePath;
+
 void prepareFiles();
-void checkGamePath();
+const std::string promptGamePath();
+bool isValidGamePath(const std::string& gamePath);

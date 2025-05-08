@@ -13,7 +13,8 @@ void pack(const std::string& inputFolder, const std::string& outputFile) {
     fs::path root = fs::path(inputFolder);
 
     // Ensure "blue" folder exists
-    if (!fs::exists(root / "blue") || !fs::is_directory(root / "blue")) {
+    fs::path blueDir = root / "blue";
+    if (!fs::exists(blueDir) || !fs::is_directory(blueDir)) {
         throw std::runtime_error("Input folder must contain a 'blue' subfolder.");
     }
 
@@ -26,9 +27,8 @@ void pack(const std::string& inputFolder, const std::string& outputFile) {
     std::ifstream metaFile(modJsonPath);
     if (!metaFile) throw std::runtime_error("Cannot open mod.json.");
 
-    std::string jsonStr((std::istreambuf_iterator<char>(metaFile)), std::istreambuf_iterator<char>());
-    ModMetadata meta = parseMetadataFromJson(jsonStr);
-    std::vector<char> jsonBuffer(jsonStr.begin(), jsonStr.end());
+    std::vector<char> jsonBuffer((std::istreambuf_iterator<char>(metaFile)), {});
+    ModMetadata meta = parseMetadataFromJson(std::string(jsonBuffer.begin(), jsonBuffer.end()));
 
     // Collect files
     std::vector<FileEntry> files = collectFiles(inputFolder);
@@ -52,7 +52,6 @@ void unpack(const std::string& inputFile, const std::string& outputFolder) {
 }
 
 ModMetadata showInfo(const std::string& inputFile) {
-    ModMetadata emptyData;
     std::ifstream in(inputFile, std::ios::binary);
     if (!in) throw std::runtime_error("Cannot open input file.");
 
@@ -65,13 +64,13 @@ ModMetadata showInfo(const std::string& inputFile) {
 
     if (it == files.end()) {
         std::cerr << "No mod.json found in archive.\n";
-        return emptyData;
+        return {};
     }
 
     auto jsonStrOpt = extractFileToMemory(in, *it);
     if (!jsonStrOpt) {
         std::cerr << "Failed to read mod.json from archive.\n";
-        return emptyData;
+        return {};
     }
 
     return parseMetadataFromJson(*jsonStrOpt);

@@ -12,7 +12,7 @@ std::vector<Mod> getModList() {
 
         ModMetadata info = showInfo(entry.path());
 
-        if (info.id == "") { continue; }
+        if (info.id == "") continue;
         
         Mod mod;
         mod.modData = info;

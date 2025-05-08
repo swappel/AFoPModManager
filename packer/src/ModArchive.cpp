@@ -26,13 +26,10 @@ ModMetadata parseMetadataFromJson(const std::string& str) {
 }
 
 void writeArchive(std::ofstream& out, std::vector<FileEntry>& files, const std::string& rootFolder) {
-    // Check for required "blue" folder
     fs::path blueFolder = fs::path(rootFolder) / "blue";
     if (!fs::exists(blueFolder) || !fs::is_directory(blueFolder)) {
         throw std::runtime_error("The root folder must contain a 'blue' folder.");
-        return;
     }
-
 
     const char magic[4] = {'M','O','D','P'};
     uint8_t version = 1;
@@ -43,52 +40,40 @@ void writeArchive(std::ofstream& out, std::vector<FileEntry>& files, const std::
     out.write(reinterpret_cast<char*>(&count), sizeof(count));
 
     std::streampos indexStart = out.tellp();
+    
+    // First pass: write file metadata (paths and placeholders)
     for (auto& f : files) {
         uint16_t pathLen = f.path.size();
         out.write(reinterpret_cast<char*>(&pathLen), sizeof(pathLen));
         out.write(f.path.c_str(), pathLen);
         out.write(reinterpret_cast<char*>(&f.offset), sizeof(f.offset)); // placeholder
         out.write(reinterpret_cast<char*>(&f.size), sizeof(f.size));
-        std::cout << "Reading file: " << f.path << "\n";
     }
 
+    // Second pass: write file content and update offsets in memory
     for (auto& f : files) {
-
-        f.offset = static_cast<uint64_t>(out.tellp());
+        f.offset = static_cast<uint64_t>(out.tellp()); // Set the real offset here
         if (f.content) {
             out.write(f.content->data(), f.content->size());
         } else {
             std::ifstream fin(fs::path(rootFolder) / f.path, std::ios::binary);
-
             if (!fin) {
                 throw std::runtime_error("Failed to open file: " + (fs::path(rootFolder) / f.path).string());
-                return;
             }            
 
             std::vector<char> buffer(f.size);
             fin.read(buffer.data(), f.size);
             out.write(buffer.data(), f.size);
         }
-
-        std::cout << "Packed file: " << f.path << "\n";
     }
 
     // Backpatch offsets
     out.seekp(indexStart);
     for (const auto& f : files) {
         uint16_t pathLen = static_cast<uint16_t>(f.path.size());
-        out.seekp(out.tellp()); // Ensure stream is synced
-
-        // Skip pathLen + path
-        out.seekp(out.tellp() + std::streamoff(sizeof(uint16_t) + pathLen));
-
-        // Write actual offset
-        out.write(reinterpret_cast<const char*>(&f.offset), sizeof(f.offset));
-
-        // Skip size field (already written before)
-        out.seekp(out.tellp() + std::streamoff(sizeof(uint64_t)));
-
-        std::cout << "Finished file: " << f.path << "\n";
+        out.seekp(out.tellp() + std::streamoff(sizeof(uint16_t) + pathLen)); // Skip path metadata
+        out.write(reinterpret_cast<const char*>(&f.offset), sizeof(f.offset)); // Write real offset
+        out.seekp(out.tellp() + std::streamoff(sizeof(uint64_t))); // Skip size field
     }
 }
 
