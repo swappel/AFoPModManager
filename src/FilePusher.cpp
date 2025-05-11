@@ -34,7 +34,7 @@ void unpackModFiles() {
     fs::create_directory(cachePath);
 
     for (const auto& mod : getModList()) {
-        unpack(mod.modFilePath, cachePath / mod.modData.id);
+        unpack(mod.modFilePath.string(), (cachePath / mod.modData.id).string());
         std::cout << "Unpacked " << mod.modData.id << " to cache.\n";
     }
 

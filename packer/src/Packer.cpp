@@ -40,7 +40,7 @@ void pack(const std::string& inputFolder, const std::string& outputFile) {
     std::ofstream out(outputFile, std::ios::binary);
     if (!out) throw std::runtime_error("Cannot open output file.");
 
-    writeArchive(out, files, root);
+    writeArchive(out, files, inputFolder);
 }
 
 void unpack(const std::string& inputFile, const std::string& outputFolder) {

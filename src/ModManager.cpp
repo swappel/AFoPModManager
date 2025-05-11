@@ -10,7 +10,7 @@ std::vector<Mod> getModList() {
 
     for (const auto& entry : fs::directory_iterator("./mods/")) {
 
-        ModMetadata info = showInfo(entry.path());
+        ModMetadata info = showInfo(entry.path().string());
 
         if (info.id == "") continue;
         
