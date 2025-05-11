@@ -25,6 +25,7 @@ void prepareFiles() {
 
     if (!fs::exists(modConfig)) {
         std::ofstream out(modConfig);
+        out << "{\n}";
         out.close();
     }
 
@@ -39,6 +40,8 @@ bool isValidGamePath(const std::string& path) {
     // Check if certain fiels are present in the given directory
 
     fs::path gamePath = path;
+
+    return true;
 
     if (!fs::exists(gamePath / "afop.exe")){ 
         std::cerr << "No /afop.exe found! Invalid game path.\n";

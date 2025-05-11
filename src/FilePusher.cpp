@@ -1,5 +1,7 @@
 #include "FilePusher.hpp"
+#include "ModManager.hpp"
 #include "nlohmann/json.hpp"
+#include <packer/Packer.h>
 #include <iostream>
 #include <filesystem>
 #include <unordered_map>
@@ -21,6 +23,22 @@ std::vector<std::string> getModifiedFiles(const fs::path& modDir) {
     }
 
     return files;
+}
+
+void unpackModFiles() {
+
+    std::cout << "Starting mod caching:\n";
+
+    fs::path cachePath = "./modcache/";
+
+    fs::create_directory(cachePath);
+
+    for (const auto& mod : getModList()) {
+        unpack(mod.modFilePath, cachePath / mod.modData.id);
+        std::cout << "Unpacked " << mod.modData.id << " to cache.\n";
+    }
+
+    std::cout << "All mods unpackacked and cached.\n\n";
 }
 
 uint8_t promptModWeight(const std::string& modId, json& weightJson, const std::string& configPath) {
@@ -58,6 +76,8 @@ uint8_t promptModWeight(const std::string& modId, json& weightJson, const std::s
 
 
 void filterMods() {
+    unpackModFiles();
+
     const std::string modDir = "./mods";
     const std::string weightCfgPath = "./configs/mods.cfg";
 
@@ -82,7 +102,8 @@ void filterMods() {
         uint8_t weight = promptModWeight(modId, weightJson, weightCfgPath);
         mod.modWeight = weight; // Store in the Mod object
 
-        auto files = getModifiedFiles(mod.modFilePath);
+        fs::path cachePath = "./modcache/" + mod.modData.id;
+        auto files = getModifiedFiles(cachePath);
 
         for (const std::string& file : files) {
             auto it = fileWinners.find(file);
@@ -102,7 +123,7 @@ void filterMods() {
     chosenModPaths.clear();
     for (const Mod& mod : allMods) {
         if (modFileMap.find(mod.modData.id) != modFileMap.end()) {
-            chosenModPaths.push_back(mod.modFilePath);
+            chosenModPaths.push_back("./modcache/" + mod.modData.id);
             std::cout << "Mod \"" << mod.modData.id << "\" will apply "
                       << modFileMap[mod.modData.id].size() << " file(s).\n";
         }
@@ -115,21 +136,27 @@ void filterMods() {
 }
 
 void pushFiles(const fs::path& gamePath) {
+    std::cout << "Starting mod push to game directory:\n";
     if (!fs::exists(gamePath)) {
         std::cerr << "Invalid game path. Aborting file push.\n";
         return;
     }
 
+    fs::path modCache = "./modcache";
+
     for (const Mod& mod : getModList()) {
         const std::string& modId = mod.modData.id;
         if (finalModFiles.find(modId) == finalModFiles.end()) continue;
 
-        fs::path modRoot = mod.modFilePath;
+        fs::path modRoot = modCache / modId;
 
         for (const std::string& relativeFile : finalModFiles[modId]) {
+
             fs::path sourceFile = modRoot / relativeFile;
             fs::path destinationFile = gamePath / relativeFile;
             
+            if (destinationFile.filename() == "mod.json") continue;
+
             std::cout << "Pushed file " << destinationFile.filename() << "\n";
 
             try {
@@ -141,6 +168,8 @@ void pushFiles(const fs::path& gamePath) {
             }
         }
     }
+
+    fs::remove_all(modCache);
 
     std::cout << "All selected mod files pushed successfully.\n";
 }
