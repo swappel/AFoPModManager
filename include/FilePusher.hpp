@@ -9,3 +9,4 @@ std::vector<Mod> gatherNewMods();
 void filterMods();
 uint8_t promptModWeight(const std::string& modId, nlohmann::json& weightJson, const std::string& configPath);
 void pushFiles(const std::filesystem::path& gamePath);
+void listCommand(const std::string& commandArgs);

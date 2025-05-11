@@ -48,6 +48,6 @@ int main() {
         } else if (userInput == "scan") {
             filterMods();
         }
-        
+    
     }
 }

@@ -173,3 +173,4 @@ void pushFiles(const fs::path& gamePath) {
 
     std::cout << "All selected mod files pushed successfully.\n";
 }
+
