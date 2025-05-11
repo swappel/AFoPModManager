@@ -26,7 +26,11 @@ int main() {
         if (userInput == "exit") {
             return 0;
         } else if (userInput == "help") {
-            std::cout << "";
+            std::cout << "A:FoP Mod Manager help:\n"
+                      << "scan - Scans the \"mods/\" directory for mods and prompts for mod weight if not registered yet.\n"
+                      << "push - Pushes(send/extracts) the scanned mods to the blue folder in the A:FoP directory you selected at setup. (Adds the mods to the game).\n"
+                      << "exit - Closes this program, clearing the cache and saving up space. Use THIS to exit for efficiency!\n\n"
+                      << "list - Lists all mods in the mods folder and their data, like author, version, etc...";
             continue;
         } else if (userInput == "list") {
 
